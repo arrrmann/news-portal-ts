@@ -9,10 +9,10 @@ interface CardProps {
     img: string;
 }
 
-const NewsCard: React.FC=({id, title, content, publishDate, img}:CardProps)=>{
+const NewsCard: React.FC<CardProps>=({id, title, content, publishDate, img})=>{
     return(
         <div className={styles.card}>
-        <img src={img} alt={id} />
+        <img src={img} alt='#' />
         <div className={styles.cardContent}>
             <h2 className={styles.cardTitle}>{title}</h2>
             <p className={styles.cardInfo}>{content}</p>
