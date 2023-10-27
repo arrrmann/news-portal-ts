@@ -1,0 +1,55 @@
+.user {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.userPic {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.clickBlock {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.DDMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+}
+
+.DDMenu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.DDMenu li {
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 5px 0;
+}
+
+
+.DDMenu li:hover {
+    color: #007bff;
+}

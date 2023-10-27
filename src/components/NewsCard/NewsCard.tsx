@@ -1,13 +1,7 @@
 import styles from './News-card.module.css'
+import { CardProps } from './NewsCard.interface'
 
 
-interface CardProps {
-    id:number;
-    title: string;
-    content: string;
-    publishDate:string;
-    img: string;
-}
 
 const NewsCard: React.FC<CardProps>=({id, title, content, publishDate, img})=>{
     return(
@@ -17,6 +11,7 @@ const NewsCard: React.FC<CardProps>=({id, title, content, publishDate, img})=>{
             <h2 className={styles.cardTitle}>{title}</h2>
             <p className={styles.cardInfo}>{content}</p>
             <span className={styles.date}>{publishDate}</span>
+            <a href='#' className={styles.readMore}>Read more</a>
         </div>
     </div>
     )

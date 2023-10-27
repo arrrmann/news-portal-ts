@@ -1,21 +1,27 @@
 import React from 'react'
+import User from '../User/User'
 import styles from './Header.module.css'
 
 const Header:React.FC=()=>{
     return (
         <header className={styles.header}>
             <nav className={styles.menu}>
-                <ul className='ul'>
-                    <li>
-                        <a href='H'>Home</a>
-                    </li>
-                    <li>
-                        <a href='a'> About</a>
-                    </li>
-                    <li>
-                        <a href='C'>Contact</a>
-                    </li>
-                </ul>
+                <div className={styles.ulS}>
+                    <ul className='ul'>
+                        <li>
+                            <a href='H'>Home</a>
+                        </li>
+                        <li>
+                            <a href='a'> About</a>
+                        </li>
+                        <li>
+                            <a href='C'>Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div className={styles.userDiv}>
+                    <User/>
+                </div>
             </nav>
         </header>
     )
