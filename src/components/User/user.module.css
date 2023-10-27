@@ -1,7 +1,6 @@
 .user {
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
 
 .userPic {
@@ -28,6 +27,7 @@
     position: absolute;
     top: 100%;
     right: 0;
+    width: 80px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -43,9 +43,7 @@
 
 .DDMenu li {
     margin-bottom: 10px;
-    text-decoration: none;
-    color: #333;
-    display: block;
+    color: #000000;
     padding: 5px 0;
 }
 
