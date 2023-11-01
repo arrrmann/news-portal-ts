@@ -30,3 +30,9 @@
     display: inline-block;
     margin-right: 15px;
 }
+
+.ulS{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

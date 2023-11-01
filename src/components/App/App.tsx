@@ -36,10 +36,53 @@ export default function App() {
             img: 'https://img.freepik.com/premium-photo/hand-holding-camera-dslr-travel-river-sunset-holiday-travel-vintage_10541-1063.jpg',
         }
     ]
+
+    const searchAutocomplete =[
+        {
+            text:'About trees news',
+            rating:0.3
+        },
+        {
+            text:'About plants news',
+            rating:0.2
+        },
+        {
+            text:'About tesla news',
+            rating:0.5
+        },
+        {
+            text:'About yerevan news',
+            rating:0.2
+        },
+        {
+            text:'About artsakh news',
+            rating:0.1
+        },
+        {
+            text:'About israel news',
+            rating:0.9
+        },
+        {
+            text:'About today news',
+            rating:0.8
+        },
+        {
+            text:'About tmorrow news',
+            rating:0.5
+        },
+        {
+            text:'About weather news',
+            rating:0.2
+        },
+        {
+            text:'About moon news',
+            rating:0.7
+        },
+    ]
     
     return (
         <>
-            <Header />
+            <Header searchAutocomplete={searchAutocomplete}/>
             <NewsList news={news} />
         </>
     )
