@@ -36,3 +36,51 @@
     justify-content: space-around;
     align-items: center;
 }
+
+.toggole{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right:15px;
+}
+
+.toggole button{
+    padding: 5px;
+    background-color:transparent;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    border: none;
+}
+
+.toggole button:hover{
+    color: #bebebe;
+    cursor: pointer;
+}
+
+.userDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.darkTheme {
+    background-color: #333;
+    color: #fff;
+}
+
+.darkTheme a {
+    color: #fff;
+}
+
+.darkTheme a:hover {
+    color: #a7a7a7;
+}
+
+.darkTheme .toggole button:hover {
+    color: #bebebe;
+}
+
+.darkTheme .toggole button {
+    color: #fff;
+}

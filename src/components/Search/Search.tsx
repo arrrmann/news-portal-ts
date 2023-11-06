@@ -32,9 +32,7 @@ const Search: React.FC<SearchProps> = ({ searchAutocomplete }) => {
         setShowItem(false)
       }
     }
-
       document.addEventListener("click", handleClickOutside)
-
     return () => {
       document.removeEventListener("click", handleClickOutside)
     }

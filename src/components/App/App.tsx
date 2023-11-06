@@ -1,10 +1,22 @@
 import Header from '../Header/Header'
+import { Suspense, lazy } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+//import {useState} from 'react'
 //import NewsCard from '../NewsCard/NewsCard'
-import NewsList from '../NewsList/NewsList'
+//import { TestComponent } from '../TestComponent'
+//import TestCclasswork from '../Test.C.classwork'
+//import TestWapi from '../TestWapi'
+import Loading from '../Loading/Loading'
+const MainPage=lazy(()=>import('../../pages/MainPage'))
+const ContactPage=lazy(()=>import('../../pages/ContactPage'))
+const NewsPage=lazy(()=>import('../../pages/NewsPage'))
+const AboutPage=lazy(()=>import('../../pages/AboutPage'))
+
 
 
 
 export default function App() {
+//    const [isMounted, setIsMounted]=useState(true)
     const news = [
         {
             id: 1,
@@ -81,9 +93,18 @@ export default function App() {
     ]
     
     return (
-        <>
-            <Header searchAutocomplete={searchAutocomplete}/>
-            <NewsList news={news} />
-        </>
+        <BrowserRouter>
+        <Header searchAutocomplete={searchAutocomplete}/>
+            <div className='app'>
+                <Suspense fallback={<Loading/>}>
+                    <Routes>
+                        <Route path='/about' element={<AboutPage/>}/>
+                        <Route path='/contact' element={<ContactPage/>}/>
+                        <Route path='/article/:id' element={<NewsPage news={news}/>}/>
+                        <Route path='/' element={<MainPage news={news}/>}/>
+                    </Routes>   
+                </Suspense>
+            </div>
+        </BrowserRouter>
     )
 }
