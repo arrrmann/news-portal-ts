@@ -8,8 +8,6 @@
   width: 200px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
-  color: #000000;
 }
 
 .btn {
@@ -19,7 +17,6 @@
   color: #fff;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
 }
 
 .dropdown {

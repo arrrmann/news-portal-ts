@@ -1,25 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import User from '../User/User'
 import styles from './Header.module.css'
 import Search from '../Search/Search'
 import { SearchProps } from '../Search/Search.props'
 import { Link } from 'react-router-dom'
 import { FaRegSun, FaRegMoon } from "react-icons/fa6"
+import useTheme from '../../Theme/useTheme'
 
 
 const Header: React.FC<SearchProps> = ({ searchAutocomplete }) => {
-    const [isDark, setIsDark] = useState(false)
-
-    const toggole = () => {
-        setIsDark((prevTheme) => !prevTheme)
-    }
+    const {theme,toggleTheme}=useTheme()
 
     return (
-        <header className={`${styles.header} ${isDark ? styles.darkTheme : ''}`}>
+        <header className={styles.header}>
             <nav className={styles.menu}>
                 <div className={styles.ulS}>
                     <ul className='ul'>
-                        <li>
+                        <li className={styles.home}>
                             <Link to='/'>Home</Link>
                         </li>
                         <li>
@@ -33,8 +30,8 @@ const Header: React.FC<SearchProps> = ({ searchAutocomplete }) => {
                 </div>
                 <div className={styles.userDiv}>
                     <div className={styles.toggole}>
-                        <button onClick={toggole}>
-                            {isDark ? <FaRegSun /> : <FaRegMoon />}
+                        <button onClick={toggleTheme}>
+                            {theme === 'dark' ? <FaRegSun /> : <FaRegMoon />}
                         </button>
                     </div>
                     <User/>

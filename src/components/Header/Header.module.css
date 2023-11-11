@@ -1,7 +1,5 @@
 .header{
     background-color: rgb(46, 46, 46);
-    color: #fff;
-    font-size: 16px;
     padding: 20px 10px;
 }
 
@@ -31,6 +29,14 @@
     margin-right: 15px;
 }
 
+.home{
+    font-size: 24px;
+}
+
+.home a:hover{
+    color: #007bff;
+}
+
 .ulS{
     display: flex;
     justify-content: space-around;
@@ -42,18 +48,18 @@
     justify-content: center;
     align-items: center;
     margin-right:15px;
+    font-size: 24px;
 }
 
 .toggole button{
     padding: 5px;
     background-color:transparent;
-    color: rgb(255, 255, 255);
-    font-size: 24px;
     border: none;
+    color: #fff;
 }
 
 .toggole button:hover{
-    color: #bebebe;
+    color: #007bff;
     cursor: pointer;
 }
 
@@ -61,26 +67,5 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
-.darkTheme {
-    background-color: #333;
-    color: #fff;
-}
-
-.darkTheme a {
-    color: #fff;
-}
-
-.darkTheme a:hover {
-    color: #a7a7a7;
-}
-
-.darkTheme .toggole button:hover {
-    color: #bebebe;
-}
-
-.darkTheme .toggole button {
-    color: #fff;
-}

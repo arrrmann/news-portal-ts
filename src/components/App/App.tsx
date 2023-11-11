@@ -1,22 +1,23 @@
-import Header from '../Header/Header'
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy} from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-//import {useState} from 'react'
-//import NewsCard from '../NewsCard/NewsCard'
-//import { TestComponent } from '../TestComponent'
-//import TestCclasswork from '../Test.C.classwork'
-//import TestWapi from '../TestWapi'
+import Header from '../Header/Header'
+import useTheme from '../../Theme/useTheme'
 import Loading from '../Loading/Loading'
+import '../../styles/index.scss'
+
 const MainPage=lazy(()=>import('../../pages/MainPage'))
 const ContactPage=lazy(()=>import('../../pages/ContactPage'))
 const NewsPage=lazy(()=>import('../../pages/NewsPage'))
 const AboutPage=lazy(()=>import('../../pages/AboutPage'))
 
 
-
+// export enum Lang{
+//     EN='english',
+//     HY='armenian',
+// }
 
 export default function App() {
-//    const [isMounted, setIsMounted]=useState(true)
+const {theme}=useTheme()
     const news = [
         {
             id: 1,
@@ -48,7 +49,6 @@ export default function App() {
             img: 'https://img.freepik.com/premium-photo/hand-holding-camera-dslr-travel-river-sunset-holiday-travel-vintage_10541-1063.jpg',
         }
     ]
-
     const searchAutocomplete =[
         {
             text:'About trees news',
@@ -94,8 +94,8 @@ export default function App() {
     
     return (
         <BrowserRouter>
-        <Header searchAutocomplete={searchAutocomplete}/>
-            <div className='app'>
+        <div className={`app ${theme}`}>
+            <Header searchAutocomplete={searchAutocomplete}/>
                 <Suspense fallback={<Loading/>}>
                     <Routes>
                         <Route path='/about' element={<AboutPage/>}/>
