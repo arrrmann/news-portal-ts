@@ -1,8 +1,8 @@
 import React from "react";
-import styles from './news-list.module.css'
-import NewsCard from "../NewsCard/NewsCard";
-import { CardProps } from "../NewsCard/NewsCard.interface";
+import NewsCard from "components/NewsCard/NewsCard";
+import { CardProps } from "components/NewsCard/NewsCard.interface";
 import { NewsListProps } from "./NewsList.interface";
+import styles from './news-list.module.css'
 
 
 

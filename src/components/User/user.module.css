@@ -14,6 +14,16 @@
     margin-right: 10px;
 }
 
+.userPic img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
 .wrapper {
     position: relative;
 }
@@ -21,6 +31,17 @@
 .clickBlock {
     cursor: pointer;
     color: #fff;
+}
+
+.signOut{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.signOut:hover{
+    color: #007bff;
+    cursor: pointer;
 }
 
 .DDMenu {
@@ -50,4 +71,5 @@
 
 .DDMenu li:hover {
     color: #007bff;
+    cursor: pointer;
 }

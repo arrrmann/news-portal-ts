@@ -1,23 +1,35 @@
-import { Suspense, lazy} from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Header from '../Header/Header'
-import useTheme from '../../Theme/useTheme'
-import Loading from '../Loading/Loading'
-import '../../styles/index.scss'
-
-const MainPage=lazy(()=>import('../../pages/MainPage'))
-const ContactPage=lazy(()=>import('../../pages/ContactPage'))
-const NewsPage=lazy(()=>import('../../pages/NewsPage'))
-const AboutPage=lazy(()=>import('../../pages/AboutPage'))
+import { onAuthStateChanged, signOut, User } from 'firebase/auth'
+import Header from 'components/Header/Header'
+import useTheme from 'Theme/useTheme'
+import Loading from 'components/Loading/Loading'
+import { auth } from '../../fireBase'//!chi linum normal zhanaparhov
+import 'styles/index.scss'
+//import Modal from '../Modal/Modal' //It takes children
 
 
-// export enum Lang{
-//     EN='english',
-//     HY='armenian',
-// }
+const MainPage = lazy(() => import('pages/MainPage'))
+const ContactPage = lazy(() => import('pages/ContactPage'))
+const NewsPage = lazy(() => import('pages/NewsPage'))
+const AboutPage = lazy(() => import('pages/AboutPage'))
 
 export default function App() {
-const {theme}=useTheme()
+    const { theme } = useTheme()
+    const [user, setUser] = useState<User | null>(null)
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser)
+        })
+
+        return unsubscribe
+    }, [])
+
+    const handleSignOut = () => {
+        signOut(auth).catch(err => console.log(err))
+    }
+
     const news = [
         {
             id: 1,
@@ -32,7 +44,7 @@ const {theme}=useTheme()
             content: 'News Content 2',
             publishDate: (new Date().toDateString()),
             img: 'https://imgv3.fotor.com/images/slider-image/a-man-holding-a-camera-with-image-filter.jpg',
-            
+
         },
         {
             id: 3,
@@ -49,60 +61,60 @@ const {theme}=useTheme()
             img: 'https://img.freepik.com/premium-photo/hand-holding-camera-dslr-travel-river-sunset-holiday-travel-vintage_10541-1063.jpg',
         }
     ]
-    const searchAutocomplete =[
+    const searchAutocomplete = [
         {
-            text:'About trees news',
-            rating:0.3
+            text: 'About trees news',
+            rating: 0.3
         },
         {
-            text:'About plants news',
-            rating:0.2
+            text: 'About plants news',
+            rating: 0.2
         },
         {
-            text:'About tesla news',
-            rating:0.5
+            text: 'About tesla news',
+            rating: 0.5
         },
         {
-            text:'About yerevan news',
-            rating:0.2
+            text: 'About yerevan news',
+            rating: 0.2
         },
         {
-            text:'About artsakh news',
-            rating:0.1
+            text: 'About artsakh news',
+            rating: 0.1
         },
         {
-            text:'About israel news',
-            rating:0.9
+            text: 'About israel news',
+            rating: 0.9
         },
         {
-            text:'About today news',
-            rating:0.8
+            text: 'About today news',
+            rating: 0.8
         },
         {
-            text:'About tmorrow news',
-            rating:0.5
+            text: 'About tmorrow news',
+            rating: 0.5
         },
         {
-            text:'About weather news',
-            rating:0.2
+            text: 'About weather news',
+            rating: 0.2
         },
         {
-            text:'About moon news',
-            rating:0.7
+            text: 'About moon news',
+            rating: 0.7
         },
     ]
-    
+
     return (
         <BrowserRouter>
-        <div className={`app ${theme}`}>
-            <Header searchAutocomplete={searchAutocomplete}/>
-                <Suspense fallback={<Loading/>}>
+            <div className={`app ${theme}`}>
+                <Header searchAutocomplete={searchAutocomplete} handleSignOut={handleSignOut} user={user}/>
+                <Suspense fallback={<Loading />}>
                     <Routes>
-                        <Route path='/about' element={<AboutPage/>}/>
-                        <Route path='/contact' element={<ContactPage/>}/>
-                        <Route path='/article/:id' element={<NewsPage news={news}/>}/>
-                        <Route path='/' element={<MainPage news={news}/>}/>
-                    </Routes>   
+                        <Route path='/about' element={<AboutPage />} />
+                        <Route path='/contact' element={<ContactPage />} />
+                        <Route path='/article/:id' element={<NewsPage news={news} />} />
+                        <Route path='/' element={<MainPage news={news} />} />
+                    </Routes>
                 </Suspense>
             </div>
         </BrowserRouter>

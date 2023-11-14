@@ -1,9 +1,6 @@
-import React from "react";
-import { useState } from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
-import styles from "./search.module.css";
+import React, { useState, useRef, useEffect } from "react";
 import { SearchProps, AutocompleteArrayItem } from "./Search.props";
+import styles from "./search.module.css";
 
 const Search: React.FC<SearchProps> = ({ searchAutocomplete }) => {
   const [inputValue, setInputValue] = useState("")

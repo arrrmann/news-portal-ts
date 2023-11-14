@@ -1,14 +1,16 @@
 import React from 'react'
-import User from '../User/User'
-import styles from './Header.module.css'
-import Search from '../Search/Search'
-import { SearchProps } from '../Search/Search.props'
 import { Link } from 'react-router-dom'
+import User from 'components/User/User'
+import Search from 'components/Search/Search'
+import SignIn from 'components/SignIn/SignIn'
+import { HeaderProps } from 'components/Search/Search.props'
+import useTheme from 'Theme/useTheme'
 import { FaRegSun, FaRegMoon } from "react-icons/fa6"
-import useTheme from '../../Theme/useTheme'
+import styles from './Header.module.css'
 
 
-const Header: React.FC<SearchProps> = ({ searchAutocomplete }) => {
+
+const Header: React.FC<HeaderProps> = ({ searchAutocomplete, handleSignOut, user }) => {
     const {theme,toggleTheme}=useTheme()
 
     return (
@@ -34,7 +36,9 @@ const Header: React.FC<SearchProps> = ({ searchAutocomplete }) => {
                             {theme === 'dark' ? <FaRegSun /> : <FaRegMoon />}
                         </button>
                     </div>
-                    <User/>
+                    {
+                        user ? <User handleSignOut={handleSignOut} user={user}/> : <SignIn/>  
+                    }
                 </div>
             </nav>
         </header>
