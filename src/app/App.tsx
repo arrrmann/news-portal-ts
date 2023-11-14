@@ -2,10 +2,10 @@ import { Suspense, lazy, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { onAuthStateChanged, signOut, User } from 'firebase/auth'
 import Header from 'components/Header/Header'
-import useTheme from 'Theme/useTheme'
+import { useTheme } from './providers/themeProvider'
 import Loading from 'components/Loading/Loading'
-import { auth } from '../../fireBase'//!chi linum normal zhanaparhov
-import 'styles/index.scss'
+import { auth } from '../fireBase'//!chi linum normal zhanaparhov
+import 'app/styles/index.scss'
 //import Modal from '../Modal/Modal' //It takes children
 
 

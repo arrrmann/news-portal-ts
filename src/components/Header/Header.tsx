@@ -4,7 +4,7 @@ import User from 'components/User/User'
 import Search from 'components/Search/Search'
 import SignIn from 'components/SignIn/SignIn'
 import { HeaderProps } from 'components/Search/Search.props'
-import useTheme from 'Theme/useTheme'
+import { useTheme } from 'app/providers/themeProvider'
 import { FaRegSun, FaRegMoon } from "react-icons/fa6"
 import styles from './Header.module.css'
 
